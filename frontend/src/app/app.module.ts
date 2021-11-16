@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { FormsModule } from '@angular/forms';
-import { Socket } from 'socket.io';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MessageRoomComponent } from './components/message-room/message-room.component';
+import { RecentConversationsComponent } from './components/recent-conversations/recent-conversations.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MessageRoomComponent,
+    RecentConversationsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    Socket
   ],
   providers: [],
   bootstrap: [AppComponent]
