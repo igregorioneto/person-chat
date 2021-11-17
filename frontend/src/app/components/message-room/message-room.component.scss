@@ -18,9 +18,14 @@
         border-bottom: 2px solid #CCC;
     }
 
+    .messages-send {
+        span {
+            margin-top: 15px;
+        }
+    }
+
     .send-message {
         margin: 30px 0 70px 0;
-        width: 800px;
         height: 100px;
 
         input {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 import { environment } from 'src/environments/environment';
 
@@ -12,13 +13,26 @@ export class WebsocketService {
 
   constructor(){
     this.socket = io(this.url, { transports: ['websocket', 'polling', 'flashsocket'] });
-    this.socket.emit('message', {
-      message: 'carregado'
-    });
   }
 
-  
   sendMessage(data: any): void {
     this.socket.emit('message', data);
   }
+
+  sendRoom(data: any): void {
+    this.socket.emit('select_room', data);
+  }
+
+  getMessage(): Observable<any> {
+    return new Observable<any>(observer => {
+      this.socket.on('message', (data) => {
+        observer.next(data);
+      });
+
+      return () => {
+        this.socket.disconnect();
+      }
+    });
+  }
+
 }

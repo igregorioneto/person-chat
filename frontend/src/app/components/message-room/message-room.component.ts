@@ -7,18 +7,25 @@ import { WebsocketService } from '../../services/websocket.service';
   styleUrls: ['./message-room.component.scss']
 })
 export class MessageRoomComponent implements OnInit {
-
+  public text: string = '';
+  public user: any[] = [];
   constructor(private chatService: WebsocketService) { }
 
   ngOnInit(): void {
+    this.chatService.getMessage().subscribe((data) => {
+      this.user = data;
+      console.log(this.user[0]);
+    });
   }
 
   sendMessage(): void {
     this.chatService.sendMessage({
-      user: 'root',
+      username: 'Usuario Root',
       room: '01',
-      message: 'Hello world!'
+      message: this.text
     })
+
+    this.text = '';
   }
 
 }

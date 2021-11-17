@@ -1,0 +1,18 @@
+.recent {
+    width: 200px;
+    .room-message {
+        height: 70px;
+        padding: 10px;
+        border-bottom: 2px solid #CCC;
+
+        span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .room-message:hover {
+        cursor: pointer;
+        background-color: rgb(238, 236, 236);
+    }
+}

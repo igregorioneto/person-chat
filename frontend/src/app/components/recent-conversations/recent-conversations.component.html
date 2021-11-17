@@ -1,3 +1,13 @@
 <div class="recent">
-    <p>recent-conversations works!</p>
+    <div value="user1" class="room-message" name="select_room" (click)="selectRoom($event)">
+        <span>Usuário 1</span>
+    </div>
+
+    <div value="user2" class="room-message" name="select_room" (click)="selectRoom($event)">
+        <span>Usuário 2</span>
+    </div>
+
+    <div value="user3" class="room-message" (click)="selectRoom($event)">
+        <span>Usuário 3</span>
+    </div>
 </div>
